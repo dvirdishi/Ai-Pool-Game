@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <title>Classic Pool Game</title>
+    <!-- Link to CSS file for game layout -->
+    <link rel="stylesheet" type="text/css" href="css/game-layout.css"/>
+    <!-- Link to favicon image -->
+    <link rel="shortcut icon" type="image/png" href="assets/sprites/favicon.png"/>
+    <!-- Include LAB.js library for asynchronous script loading -->
+    <script src="script/lib/LAB.min.js"></script>
+    <script>
+        // Load scripts using LAB.js
+        $LAB
+            .script('script/system/Keys.js').wait() // Script for handling keyboard input
+            .script('script/system/Color.js').wait() // Script for handling color operations
+            .script('script/genom/Vector2.js').wait() // Script for handling 2D vectors
+            .script('script/input/ButtonState.js').wait() // Script for handling button state (pressed or released)
+            .script('script/input/Keyboard.js').wait() // Script for handling keyboard input
+            .script('script/input/Mouse.js').wait() // Script for handling mouse input
+            .script('script/Global.js').wait() // Script for global settings and utility functions
+            .script('script/Canvas2D.js').wait() // Script for handling 2D canvas operations
+            .script('script/game_objects/Score.js').wait() // Script for handling game scores
+            .script('script/game_objects/Ball.js').wait() // Script for handling game balls
+            .script('script/game_objects/Stick.js').wait() // Script for handling game stick (cue)
+            .script('script/menu/Label.js').wait() // Script for handling game labels
+            .script('script/menu/Button.js').wait() // Script for handling game buttons
+            .script('script/menu/Menu.js').wait() // Script for handling game menus
+            .script('script/menu/MainMenu.js').wait() // Script for handling main menu
+            .script('script/AI/Opponent.js').wait() // Script for handling AI opponents
+            .script('script/AI/AIPolicy.js').wait() // Script for handling AI policies
+            .script('script/AI/AITrainer.js').wait() // Script for handling AI training
+            .script('script/game_objects/Player.js').wait() // Script for handling game players
+            .script('script/GamePolicy.js').wait() // Script for handling game policies
+            .script('script/GameWorld.js').wait() // Script for handling game world
+            .script('script/Game.js').wait() // Script for handling game logic
+            .script('script/Assets.js').wait(function () { // Script for handling game assets loading
+                // Call Game.start() function to start the game
+                Game.start('gameArea','screen', 1500, 825);
+            });
+
+    </script>
+</head>
+
+<body style="background-color:black">
+<div id="gameArea">
+    <!-- Canvas element for rendering the game screen -->
+    <canvas id="screen" width="2000" height="1000"></canvas>
+</div>
+</body>
+</html>
